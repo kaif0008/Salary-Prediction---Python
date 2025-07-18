@@ -1,12 +1,12 @@
-# Dockerfile
 FROM python:3.10-slim
 
 WORKDIR /app
 
 COPY ml-api /app/ml-api
+COPY ml-api/app.py /app/app.py
+COPY ml-api/salary_model.pkl /app/salary_model.pkl
 COPY ml-api/templates /app/templates
 COPY ml-api/static /app/static
-COPY ml-api/app.py /app/app.py
 
 RUN pip install --no-cache-dir -r ml-api/requirements.txt
 
