@@ -1,7 +1,6 @@
 document.getElementById('salaryForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    // Show loading state
     const submitBtn = this.querySelector('button[type="submit"]');
     submitBtn.innerHTML = '<span>Predicting...</span>';
     submitBtn.disabled = true;
@@ -26,8 +25,7 @@ document.getElementById('salaryForm').addEventListener('submit', async function(
 
         const result = await response.json();
         const resultElement = document.getElementById('result');
-        
-        // Format salary with commas
+
         const formattedSalary = new Intl.NumberFormat('en-IN', {
             style: 'currency',
             currency: 'INR',
@@ -54,13 +52,15 @@ document.getElementById('salaryForm').addEventListener('submit', async function(
         `;
         resultElement.classList.add('show', 'animate__animated', 'animate__shakeX');
     } finally {
+
         // Reset button state
         submitBtn.innerHTML = '<span>Predict Salary</span><svg class="arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
         submitBtn.disabled = false;
     }
 });
 
-// Add animation to form elements when page loads
+// Animation
+
 document.addEventListener('DOMContentLoaded', () => {
     const formGroups = document.querySelectorAll('.form-group');
     formGroups.forEach((group, index) => {
@@ -68,9 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Previous JS remains the same, add these new functions at the end
-
-// Scroll animation for about sections
 function checkScroll() {
     const aboutSections = document.querySelectorAll('.about-section');
     const triggerBottom = window.innerHeight / 5 * 4;
@@ -84,15 +81,13 @@ function checkScroll() {
     });
 }
 
-// Initialize scroll event listener
+//scroll event listener
 window.addEventListener('scroll', checkScroll);
 
-// Run once on page load to check initial position
 document.addEventListener('DOMContentLoaded', () => {
-    // Previous DOMContentLoaded code remains
+
     checkScroll();
     
-    // Add animation to form elements when page loads
     const formGroups = document.querySelectorAll('.form-group');
     formGroups.forEach((group, index) => {
         group.style.animationDelay = `${index * 0.1}s`;
