@@ -1,4 +1,3 @@
-// script.js
 document.getElementById('salaryForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     

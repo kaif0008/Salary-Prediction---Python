@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
-# Load the trained model
+# Loading the trained model
 model = pickle.load(open("salary_model.pkl", "rb"))
 
 @app.route("/")
@@ -25,8 +25,6 @@ def predict():
             data["gender"]
         ]
         
-        # Convert categorical features to numerical (you must match model training encoding)
-        # Replace the below with actual encoding used during training
         def encode_feature(value, mapping):
             return mapping.get(value, 0)
         
